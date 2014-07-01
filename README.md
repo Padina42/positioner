@@ -1,4 +1,4 @@
 positioner
 ==========
 
-build a comic with TYPO3 in an easy wway
+build a comic with TYPO3 in an easy way
