@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-22T18:52:32Z" product-name="positioner">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_positioner_width.description">
+				<source>distance to the border in pixels in the direction of width/X</source>
+				<target>distance to the border in pixels in the direction of width/X</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_right.description">
+				<source>if true, the txPositionWidth is relative to the right border</source>
+				<target>if true, the txPositionWidth is relative to the right border</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_height.description">
+				<source>distance to the border in pixels in the direction of height/Y</source>
+				<target>distance to the border in pixels in the direction of height/Y</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_bottom.description">
+				<source>if true, the txPositionHeight is relative to the bottom border</source>
+				<target>if true, the txPositionHeight is relative to the bottom border</target>
+			</trans-unit>
+
+            <trans-unit id="tx_positioner_content_z_index.description">
+                <source>z-index of the object</source>
+                <target>z-index of the object</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_padding_top.description">
+                <source>overlap of speech-bubble in direction of top</source>
+                <target>overlap of speech-bubble in direction of top</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_padding_right.description">
+                <source>overlap of speech-bubble in direction of right</source>
+                <target>overlap of speech-bubble in direction of right</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_padding_bottom.description">
+                <source>overlap of speech-bubble in direction of bottom</source>
+                <target>overlap of speech-bubble in direction of bottom</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_padding_left.description">
+                <source>overlap of speech-bubble in direction of left</source>
+                <target>overlap of speech-bubble in direction of left</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

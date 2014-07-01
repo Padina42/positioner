@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-22T18:52:32Z" product-name="positioner">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_positioner_width.description">
+				<source>distance to the border in pixels in the direction of width/X</source>
+				<target>horizontaler Abstand gemessen relativ zur Kante</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_right.description">
+				<source>if true, the txPositionWidth is relative to the right border</source>
+				<target>Wenn es wahr ist, beginnt die Zählung der Pixel rechts.</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_height.description">
+				<source>distance to the border in pixels in the direction of height/Y</source>
+				<target>verticaler Abstand gemessen relativ zum Rand</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_bottom.description">
+				<source>if true, the txPositionHeight is relative to the bottom border</source>
+				<target>Wenn es wahr ist, beginnt die Zählung der Pixel unten.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

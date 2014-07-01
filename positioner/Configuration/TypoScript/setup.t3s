@@ -1,0 +1,669 @@
+#/***************************************************************
+# * Urheber 	Dr. Dieter Porth
+# *			Quakenbrück - 2014
+# *			Positioner - Extension für TYPO3
+# *
+# ***************************************************************
+# *
+# *  This script is part of the TYPO3 project. The TYPO3 project is
+# *  free software; you can redistribute it and/or modify
+# *  it under the terms of the GNU General Public License as published by
+# *  the Free Software Foundation; either version 3 of the License, or
+# *  (at your option) any later version.
+# *
+# *  The GNU General Public License can be found at
+# *  http://www.gnu.org/copyleft/gpl.html.
+# *
+# *  This script is distributed in the hope that it will be useful,
+# *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+# *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# *  GNU General Public License for more details.
+# *
+# *  This copyright notice MUST APPEAR in all copies of the script!
+# ***************************************************************
+# */
+
+# convert infornmation to CSS-order
+        lib.positioner.setSimpleZindex = TEXT
+        lib.positioner.setSimpleZindex {
+            data = field:tx_positioner_content_z_index
+            if.isTrue.data = field:tx_positioner_content_z_index
+            requiered = 1
+            noTrimWrap = | z-index: |;|
+        }
+
+        # DE: Bestimme, ob ein z-Index als CSS-Befehl für das Style-Attribut zurückgegeben werden muss
+        lib.positioner.setZindex = COA
+        lib.positioner.setZindex {
+            10 = TEXT
+            10 {
+                data = field:tx_positioner_content_z_index
+                if.isTrue.data = field:tx_positioner_content_z_index
+                requiered = 1
+                noTrimWrap = | z-index: |;|
+            }
+            20 = TEXT
+            20 {
+                value = {$tx_positioner.positionercontent.content.zIndex}
+                if.isFalse.data = field:tx_positioner_content_z_index
+                if.isTrue.data = field:tx_positioner_height
+                requiered = 1
+                noTrimWrap = | z-index: |;|
+            }
+            30 = TEXT
+            30 {
+                value = {$tx_positioner.positionercontent.content.zIndex}
+                if.isFalse.data = field:tx_positioner_content_z_index
+                if.isFalse.data = field:tx_positioner_height
+                if.isTrue.data = field:tx_positioner_width
+                requiered = 1
+                noTrimWrap = | z-index: |;|
+            }
+        }
+
+        lib.positioner.setTopBottom = CASE
+        lib.positioner.setTopBottom  {
+            key.field = tx_positioner_bottom
+            default = TEXT
+            default {
+                dataWrap = top: {field:tx_positioner_height}px;
+                if.isTrue.field = tx_positioner_height
+            }
+            1 = TEXT
+            1 {
+                dataWrap = bottom: {field:tx_positioner_height}px;
+                if.isTrue.field = tx_positioner_height
+            }
+        }
+
+        lib.positioner.setLeftRight = CASE
+        lib.positioner.setLeftRight  {
+            key.field = tx_positioner_right
+            default = TEXT
+            default {
+                dataWrap = left: {field:tx_positioner_width}px;
+                if.isTrue.field = tx_positioner_width
+            }
+            1 = TEXT
+            1 {
+                dataWrap = right: {field:tx_positioner_width}px;
+                if.isTrue.field = tx_positioner_width
+            }
+        }
+        
+        lib.positioner.setObjectHeight = TEXT
+        lib.positioner.setObjectHeight {
+            dataWrap = height: {field:imageheight}px;
+            if.isTrue.field = imageheight
+        }
+
+        lib.positioner.setObjectWidth = TEXT
+        lib.positioner.setObjectWidth {
+            dataWrap = width: {field:imagewidth}px;
+            if.isTrue.field = imagewidth
+        }
+
+        lib.positioner.setObjectPosition  = CASE
+        lib.positioner.setObjectPosition {
+            key.field = section_frame
+            default = TEXT
+            default.value = position: relative;
+            67 = TEXT
+            67.value = position: relative;
+            68 = TEXT
+            68.value = position: absolute;
+        }
+
+        lib.positioner.setBubblePaddingTop = TEXT
+        lib.positioner.setBubblePaddingTop {
+            dataWrap = {field:tx_positioner_padding_top}px
+            if.isFalse.value = 0px
+            append = TEXT
+            append.char = 32
+        }
+        lib.positioner.setBubblePaddingRight = TEXT
+        lib.positioner.setBubblePaddingRight {
+            dataWrap = {field: tx_positioner_padding_right}px
+            if.isFalse.value = 0px
+            append = TEXT
+            append.char = 32
+        }
+        lib.positioner.setBubblePaddingBottom = TEXT
+        lib.positioner.setBubblePaddingBottom {
+            dataWrap = {field: tx_positioner_padding_bottom}px
+            if.isFalse.value = 0px
+            append = TEXT
+            append.char = 32
+        }
+        lib.positioner.setBubblePaddingLeft = TEXT
+        lib.positioner.setBubblePaddingLeft {
+            dataWrap = {field: tx_positioner_padding_left}px
+            if.isFalse.value = 0px
+            append = TEXT
+            append.value = ;
+        }
+
+# construct an inline-Style for content-elements
+    lib.positioner.setContent = COA
+    lib.positioner.setContent {
+        10 = LOAD_REGISTER
+        10 {
+            positionerStyle.cObject = COA
+            positionerStyle.cObject {
+                10 < lib.positioner.setTopBottom
+                20 < lib.positioner.setLeftRight
+
+                50 < lib.positioner.setSimpleZindex
+                wrap = |
+            }
+        }
+        20 = TEXT
+        20 {
+            data = register:positionerStyle
+            if.isTrue.data = register:positionerStyle
+            noTrimWrap = | style="position:absolute; |"|
+            insertData = 1
+        }
+        30 = RESTORE_REGISTER
+    }
+
+# build the HTNL-Injection for the content-Elenmente "positioner frame"
+    lib.positioner.setPositioner = COA
+    lib.positioner.setPositioner {
+        10 = TEXT
+        10 {
+            value (
+            </{$tx_positioner.positionercontent.main.tag}>
+            )
+            insertData = 1
+        }
+
+        20 = TEXT
+        20 {
+            prepend = TEXT
+            prepend.value = <
+            #.char = 60
+            value = {$tx_positioner.positionercontent.main.tag}
+            insertData = 1
+            append = TEXT
+            append.char = 32
+        }
+        30 = TEXT
+        30 {
+            value = id="{$tx_positioner.positionercontent.main.idPrefix}{field:uid}"
+            insertData = 1
+            append = TEXT
+            append.char = 32
+        }
+
+        40 = TEXT
+        40 {
+            value = {$tx_positioner.positionercontent.main.attribute}
+            insertData = 1
+            append = TEXT
+            append.char = 32
+        }
+
+        50 = TEXT
+        50.value = style="
+        51 = COA
+        51 {
+            20 < lib.positioner.setObjectWidth
+            21 = TEXT
+            21.char = 32
+
+            30 < lib.positioner.setObjectHeight
+            31 < .21
+            40 < lib.positioner.setTopBottom
+            41 < .21
+            50 < lib.positioner.setLeftRight
+            51 < .21
+            60 < lib.positioner.setZindex
+            61 < .21
+            70 < lib.positioner.setObjectPosition
+            71 < .21
+            80 = TEXT
+            80.value = ">
+        }
+    }
+
+# Utuility for the speechb-bubble
+                lib.positioner.changeColor.from_color = COA
+                lib.positioner.changeColor.from_color {
+                    10 = TEXT
+                    10 {
+                        data = field:tx_positioner_from_color
+                        if.isTrue.data = field:tx_positioner_from_color
+                        required = 1
+                    }
+                    20 = TEXT
+                    20 {
+                        value = {$tx_positioner.positionercontent.image.from_color}
+                        if.isFalse.data = field:tx_positioner_from_color
+                        required = 1
+                    }
+                    wrap = #|
+                    required = 1
+                }
+
+                lib.positioner.changeColor.to_color = COA
+                lib.positioner.changeColor.to_color {
+                    10 = TEXT
+                    10 {
+                        data = field:tx_positioner_to_color
+                        if.isTrue.data = field:tx_positioner_to_color
+                        required = 1
+                    }
+                    20 = TEXT
+                    20 {
+                        value = {$tx_positioner.positionercontent.image.to_color}
+                        if.isFalse.data = field:tx_positioner_to_color
+                        required = 1
+                    }
+                    wrap = #|
+                    required = 1
+                }
+
+                lib.positioner.changeColor.dummy_color = COA
+                lib.positioner.changeColor.dummy_color {
+                    10 = TEXT
+                    10 {
+                        data = field:tx_positioner_dummy_color
+                        if.isTrue.data = field:tx_positioner_dummy_color
+                        required = 1
+                    }
+                    20 = TEXT
+                    20 {
+                        value = {$tx_positioner.positionercontent.image.dummy_color}
+                        if.isFalse.data = field:tx_positioner_dummy_color
+                        required = 1
+                    }
+                    wrap = #|
+                    required = 1
+                }
+
+            lib.positioner.changeColorInImage = COA
+            lib.positioner.changeColorInImage {
+                10 = LOAD_REGISTER
+                10 {
+                    savedImageOriginal.cObject  = TEXT
+                    savedImageOriginal.cObject {
+                        data = file:current:publicUrl
+                    }
+                }
+
+                11 = LOAD_REGISTER
+                11.setFromColor.cObject < lib.positioner.changeColor.from_color
+                12 = LOAD_REGISTER
+                12.setToColor.cObject < lib.positioner.changeColor.to_color
+                13 = LOAD_REGISTER
+                13.setDummyColor.cObject < lib.positioner.changeColor.dummy_color
+
+                15 = LOAD_REGISTER
+                15 {
+                    opacityNormValue = TEXT
+                    opacityNormValue {
+                        stdWrap.field = tx_positioner_to_opacity
+                        stdWrap.wrap = (100-|) / 100
+                        prioriCalc = 1
+                        wrap2 = opacity: |;
+                        required = 1
+                    }
+                }
+                16 = LOAD_REGISTER
+                16 {
+                    opacityMozValue = TEXT
+                    opacityMozValue {
+                        stdWrap.field = tx_positioner_to_opacity
+                        stdWrap.wrap = (100-|) / 100
+                        prioriCalc = 1
+                        wrap2 = -moz-opacity: |;
+                        required = 1
+                    }
+                }
+                17 = LOAD_REGISTER
+                17 {
+                    opacityIeValue = TEXT
+                    opacityIeValue {
+                        stdWrap.field = tx_positioner_to_opacity
+                        stdWrap.wrap = (100-|)
+                        prioriCalc = 1
+                        wrap2 = filter: alpha(opacity=|);
+                        required = 1
+                    }
+                }
+
+                20 = IMAGE
+                20.file = GIFBUILDER
+                20.file {
+                    XY = [10.w],[10.h]
+                    format = png
+                    required = 1
+                    10 = IMAGE
+                    10.file = GIFBUILDER
+                    10.file {
+                        XY = [10.w],[10.h]
+                        format = png
+                        required = 1
+                        10 = IMAGE
+                        10.file = GIFBUILDER
+                        10.file {
+                            XY = [10.w],[10.h]
+                            format = png
+                            required = 1
+                            10 = IMAGE
+                            # params arebiete nicht, wenn für file das GIFBUILDER-Objekt definiert wird. // params won't work, if you define here the GIBBUILDER-Object
+                            10.file {
+                                import.data = register:savedImageOriginal
+                                XY = [10.w],[10.h]
+#                                params = -rotate 270
+                                params.stdWrap.cObject = CASE
+                                params.stdWrap.cObject {
+                                    key.field = image_effects
+                                    #indertData = 1
+                                    # Default-Parameter
+                                    default = TEXT
+                                    default.value =
+                                    # default-definition Values
+                                    # estiamte from core C:\xampp\htdocs\typo3_src-6.2.1\typo3\sysext\core\Classes\Imaging\GraphicalFunctions.php
+                                    # and command-line-description see:  http://www.graphicsmagick.org/GraphicsMagick.html // http://www.imagemagick.org/script/command-line-options.php
+                                    1 = TEXT
+                                    1.value = -rotate 90
+                                    2 = TEXT
+                                    2.value = -rotate 270
+                                    3 = TEXT
+                                    3.value = -rotate 180
+                                    10 = TEXT
+                                    10.value = -colorspace GRAY
+                                    11 =TEXT
+                                    11.value = -sharpen 3x4
+                                    20 = TEXT
+                                    20.value = -normalize
+                                    23 = TEXT
+                                    23.value = -contrast -contrast
+                                    25 = TEXT
+                                    25.value = -gamma 2.0
+                                    26 = TEXT
+                                    26.value = -gamma .08
+                                }
+                            }
+                            # Schütze die transparenten Pixel / save the transparent pixels
+                            backColor.stdWrap.data = register:setDummyColor
+                            transparentColor.stdWrap.data = register:setDummyColor
+                        }
+                        #Beginn des Farbtausche im Bild mit transparenten Pixeln // Step one of changing a color in an image with transparent pixels
+                        backColor.stdWrap.data = register:setDummyColor
+                        transparentColor.stdWrap.data = register:setFromColor
+                    }
+                    #Abschluss des Farbtausches im Bild mit transparenten Pixeln // Step two of changing a color in an image with transparent pixels
+                    transparentColor.stdWrap.data = register:setDummyColor
+                    backColor.stdWrap.data = register:setToColor
+                }
+                20.params = style="{register:opacityMozValue} {register:opacityIeValue} {register:opacityNormValue} width: 100%; height: 100%;"
+                20.params.insertData = 1
+
+                # delete register: opacityValue savedImageOriginal setFromColor setToColor setDummyColor setToOpacity
+                92 = RESTORE_REGISTER
+                93 = RESTORE_REGISTER
+                94 = RESTORE_REGISTER
+                96 = RESTORE_REGISTER
+                97 = RESTORE_REGISTER
+                98 = RESTORE_REGISTER
+                99 = RESTORE_REGISTER
+            }
+
+
+        lib.positioner.setSpeechBubbleImage = COA
+        lib.positioner.setSpeechBubbleImage {
+            10 = TEXT
+            10.char = 60
+
+            11 = TEXT
+            11 {
+                value = {$tx_positioner.speechBubble.canvas.tag}
+                insertData = 1
+            }
+            12 = TEXT
+            12 {
+                value = style="position: absolute; display: block; top: 0px; bottom: 0px; left: 0px; right: 0px;"
+                prepend = TEXT
+                prepend.char = 32
+            }
+            30 = TEXT
+            30 {
+                value = {$tx_positioner.speechBubble.canvas.class}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+
+            40 = TEXT
+            40 {
+                value = {$tx_positioner.speechBubble.canvas.event}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+
+            50 = TEXT
+            50 {
+                value = {$tx_positioner.speechBubble.canvas.attribute}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+
+            90 = TEXT
+            # UTF-8 bzw. ASCII für '>' = 62
+            90.char = 62
+
+            100=FILES
+            100 {
+                references{
+                    table = tt_content
+                    uid.data = field:uid
+                    fieldName = image
+                    listNum = 0
+                }
+                renderObj = IMAGE
+                renderObj < lib.positioner.changeColorInImage
+            }
+            200 = TEXT
+            200 {
+                prepend = TEXT
+                prepend.char = 60
+                value = /{$tx_positioner.speechBubble.canvas.tag}>
+                insertData = 1
+                append = TEXT
+                append.char = 10
+            }
+        }
+
+            lib.positioner.setSpeechBubbleWidthOrHeight = COA
+            lib.positioner.setSpeechBubbleWidthOrHeight {
+                10 = TEXT
+                10 {
+                    data = field:imagewidth
+                    requiered = 1
+                    if.isTrue.data = field:imagewidth
+                    noTrimWrap = | width: |px;|
+                }
+                20 = TEXT
+                20 {
+                    data = field:imageheight
+                    if.isFalse.data = field:imagewidth
+                    if.isTrue.data = field:imageheight
+                    requiered = 1
+                    noTrimWrap = | height: |px;|
+                }
+                30 = TEXT
+                30 {
+                    data = field:imagewidth
+                    requiered = 1
+                    if.isTrue.data = field:imagewidth
+                    if.isFalse.data = field:imageheight
+                    if.negate=1
+                    data >
+                    dataWrap = {$tx_positioner.speechBubble.text.heighOrWidth}
+                }
+            }
+
+        lib.positioner.setSpeechBubbleText = COA
+        lib.positioner.setSpeechBubbleText {
+            10 = TEXT
+            10.value = <div style="position: relative;
+
+            20 < lib.positioner.setSpeechBubbleWidthOrHeight
+
+            30 = TEXT
+            30.value = "
+
+            40 = TEXT
+            40 {
+                value = {$tx_positioner.speechBubble.text.event}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+            50 = TEXT
+            50 {
+                value = {$tx_positioner.speechBubble.text.attribute}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+            60 = TEXT
+            60 {
+                value = {$tx_positioner.speechBubble.text.class}
+                insertData = 1
+                required = 1
+                prepend = TEXT
+                prepend.char = 32
+            }
+
+            90 = TEXT
+            90 {
+                # UTF-8 bzw. ASCII für '>' = 62
+                value.char = 62
+                insertData = 1
+                append = TEXT
+                append.char = 10
+            }
+
+            100 =< tt_content.text.20
+
+            200 = TEXT
+            200 {
+                value = </div>
+                prepend = TEXT
+                prepend.char = 10
+            }
+        }
+
+# construct the speech-bubble
+    lib.positioner.setSpeechBubble = COA
+    lib.positioner.setSpeechBubble {
+        110 = TEXT
+        110 {
+            prepend = TEXT
+            prepend.char = 60
+            value = div style="{$tx_positioner.speechBubble.container.elementStyle}padding:
+            insertData = 1
+            append = TEXT
+            append.char = 32
+        }
+        111 < lib.positioner.setBubblePaddingTop
+        112 < lib.positioner.setBubblePaddingRight
+        113 < lib.positioner.setBubblePaddingBottom
+        114 < lib.positioner.setBubblePaddingLeft
+        115 < lib.positioner.setZindex
+        119  = TEXT
+        119.value = "
+
+        120 = TEXT
+        120 {
+            value = id="
+            prepend = TEXT
+            prepend.char = 32
+        }
+        121 = TEXT
+        121 {
+            value = {$tx_positioner.speechBubble.container.prefixId}
+            insertData = 1
+        }
+        122 = TEXT
+        122 {
+            value = {field:uid}"
+            insertData = 1
+        }
+
+        130 = TEXT
+        130 {
+            value = {$tx_positioner.speechBubble.container.attribute}
+            insertData = 1
+            required = 1
+            prepend = TEXT
+            prepend.char = 32
+        }
+
+        140 = TEXT
+        140 {
+            value = {$tx_positioner.speechBubble.container.class}
+            insertData = 1
+            prepend = TEXT
+            prepend.char = 32
+        }
+
+        150 = TEXT
+        150 {
+            value = {$tx_positioner.speechBubble.container.event}
+            insertData = 1
+            required = 1
+            prepend = TEXT
+            prepend.char = 32
+        }
+
+        190  = TEXT
+        190 {
+            # UTF-8 bzw. ASCII für '>' = 62
+            value.char = 62
+            append = TEXT
+            append.char = 10
+        }
+
+        200 < lib.positioner.setSpeechBubbleImage
+
+        300 < lib.positioner.setSpeechBubbleText
+
+        900 = TEXT
+        900 {
+            value = /div>
+            prepend = TEXT
+            prepend.char = 60
+            append = TEXT
+            append.char = 10
+        }
+    }
+
+## some insert for jQuery and the jPlayer
+# If it is wished, add some javaScript and some CSS
+[globalVar = LIT:1 = {$tx_positioner.audio.flag.includeJsJQuery}]
+page.includeJS {
+	tx_positioner_67_jquery = {$tx_positioner.audio.javascript.jQueryPath}
+}
+[global]
+
+[globalVar = LIT:1={$tx_positioner.audio.flag.includeJsPlayerLib}]
+page.includeJSFooter {
+	tx_positioner_67_player = {$tx_positioner.audio.javascript.jPlayerPath}
+    tx_positioner_67_event =  {$tx_positioner.audio.javascript.helperPositionerAudioPath}
+}
+page.includeCSS {
+    tx_positioner_67_css = {$tx_positioner.audio.css.main}
+}
+[global]

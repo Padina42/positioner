@@ -1,0 +1,114 @@
+#/***************************************************************
+# * Urheber 	Dr. Dieter Porth
+# *			Quakenbrück - 2014
+# *			Positioner - Extension für TYPO3
+# *
+# ***************************************************************
+# *
+# *  This script is part of the TYPO3 project. The TYPO3 project is
+# *  free software; you can redistribute it and/or modify
+# *  it under the terms of the GNU General Public License as published by
+# *  the Free Software Foundation; either version 3 of the License, or
+# *  (at your option) any later version.
+# *
+# *  The GNU General Public License can be found at
+# *  http://www.gnu.org/copyleft/gpl.html.
+# *
+# *  This script is distributed in the hope that it will be useful,
+# *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+# *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# *  GNU General Public License for more details.
+# *
+# *  This copyright notice MUST APPEAR in all copies of the script!
+# ***************************************************************
+# */
+
+# customsubcategory=positionercontent=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_sub_positionercontent;
+# customsubcategory=positionerplace=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_sub_positionerplace;
+# customsubcategory=speechBubble=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_sub_speechBubble;
+# customsubcategory=javascript=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_sub_javascript;
+
+## für jedes Inhaltselement Positioner
+# cat=positioner/positionercontent/010; type=int+; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_content_zindex;
+tx_positioner.positionercontent.content.zIndex = 67
+
+## für den Positioner
+# cat=positioner/positionerplace/010; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_main_tag;
+tx_positioner.positionercontent.main.tag = div
+
+# cat=positioner/positionerplace/011; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_main_idPrefix;
+tx_positioner.positionercontent.main.idPrefix = positioner-
+
+# cat=positioner/speechBubble/010; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_main_attribute;
+tx_positioner.positionercontent.main.attribute = class="positioner-content"
+
+
+
+# cat=positioner/speechBubble/010; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_container_prefixid;
+tx_positioner.speechBubble.container.prefixId = speechbubble-
+
+# cat=positioner/speechBubble/011; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_container_event;
+tx_positioner.speechBubble.container.event = onclick="if (typeof(positionerAudio.playSound) == 'function') positionerAudio.playSound(this,'c');"
+
+# cat=positioner/speechBubble/012; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_container_attribute;
+tx_positioner.speechBubble.container.attribute = title="Sprechblase"
+
+# cat=positioner/speechBubble/013; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_container_class;
+tx_positioner.speechBubble.container.class = class="speechbubble-all"
+
+# cat=positioner/speechBubble/014; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_container_container_element_style;
+tx_positioner.speechBubble.container.elementStyle = position: absolute; display: block;
+
+# cat=positioner/speechBubble/020; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_text_heighorwidth;
+tx_positioner.speechBubble.text.heighOrWidth = width:197px;
+
+# cat=positioner/speechBubble/021; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_text_event;
+tx_positioner.speechBubble.text.event =
+
+# cat=positioner/speechBubble/022; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_text_attribute;
+tx_positioner.speechBubble.text.attribute = title="Talktext"
+
+# cat=positioner/speechBubble/023; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_text_class;
+tx_positioner.speechBubble.text.class = class="speechbubble-text"
+
+
+
+# cat=positioner/speechBubble/030; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_canvas_tag;
+tx_positioner.speechBubble.canvas.tag = div
+
+# cat=positioner/speechBubble/032; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_canvas_event;
+tx_positioner.speechBubble.canvas.event =
+
+# cat=positioner/speechBubble/033; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_canvas_attribute;
+tx_positioner.speechBubble.canvas.attribute = title="Talk"
+
+# cat=positioner/speechBubble/034; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_canvas_class;
+tx_positioner.speechBubble.canvas.class = class="speechbubble-img"
+
+# cat=positioner/speechBubble/040; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_bubble_from_color;
+tx_positioner.speechBubble.image.from_color = ffffff
+# cat=positioner/speechBubble/041; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_bubble_to_color;
+tx_positioner.speechBubble.image.to_color = ff00ff
+# cat=positioner/speechBubble/042; type=string; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_bubble_dummy_color;
+tx_positioner.speechBubble.image.dummy_color = fefefe
+
+
+## JavaScript-Frameworks
+## siehe http://wiki.typo3.org/TypoScript_Constants#Constant_Types
+## Aktualliserung von Anderung bei Beschreibung nur nach Neuinstallation der Extension
+# cat=positioner/javascript/010; type=boolean; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_js_flagjquerylibary;
+tx_positioner.audio.flag.includeJsJQuery = 0
+# cat=positioner/javascript/011; type=file[js]; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_js_jqueryframe;
+tx_positioner.audio.javascript.jQueryPath = EXT:positioner/Resources/Public/JavaScript/jquery.1.8.3.min.js
+
+# cat=positioner/javascript/020; type=boolean; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_js_flagaudiolibary;
+tx_positioner.audio.flag.includeJsPlayerLib = 1
+
+# cat=positioner/javascript/021; type=file[js]; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_js_jplayersource;
+tx_positioner.audio.javascript.jPlayerPath = EXT:positioner/Resources/Public/JavaScript/jquery.jplayer.min.js
+
+# cat=positioner/javascript/030; type=file[js]; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_js_jplayerevent;
+tx_positioner.audio.javascript.helperPositionerAudioPath = EXT:positioner/Resources/Public/JavaScript/PositionerAudio.js
+
+# cat=positioner/javascript/040; type=file[js]; label=LLL:EXT:positioner/Resources/Private/Language/locallang.xlf:tx_positioner_constants_positioner.tx_css_audiostyle;
+tx_positioner.audio.css.main = EXT:positioner/Resources/Public/StyleSheets/Positioner.css

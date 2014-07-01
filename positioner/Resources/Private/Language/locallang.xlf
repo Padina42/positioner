@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-22T18:52:32Z" product-name="positioner">
+		<header/>
+		<body>
+
+
+            <trans-unit id="tx_positioner_domain_model_speechBubble">
+                <source>speech bubble</source>
+                <target>speech bubble</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner">
+                <source>Positioner</source>
+                <target>Positioner</target>
+            </trans-unit>
+
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_section_frame">
+                <source>positioner</source>
+                <target>Positioner</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_section_frame_abs">
+                <source>positioner (absolute)</source>
+                <target>positioner (absolute)</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_layout">
+                <source>comic</source>
+                <target>Comic</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_width">
+                <source>distance to the border in pixels in the direction of width/X</source>
+                <target>distance to the border in pixels in the direction of width/X</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_right">
+                <source>if true, the txPositionWidth is relative to the right border</source>
+                <target>if true, the txPositionWidth is relative to the right border</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_height">
+                <source>distance to the border in pixels in the direction of height/Y</source>
+                <target>distance to the border in pixels in the direction of height/Y</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_bottom">
+                <source>if true, the txPositionHeight is relative to the bottom border</source>
+                <target>if true, the txPositionHeight is relative to the bottom border</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_content_z_index">
+                <source>z-index</source>
+                <target>z-Index</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_content_type">
+                <source>positioner-frame</source>
+                <target>positioner-frame</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_content_desc">
+                <source>frame for the positioning</source>
+                <target>frame for the positioning</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_speechBubble_type">
+                <source>positioner speech bubble</source>
+                <target>positioner speech bubble</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_speechBubble_desc">
+                <source>container with text and a background-image</source>
+                <target>container with text and a background-image</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.dimensions">
+                <source>dimension of the positioner</source>
+                <target>dimension of the positioner</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.positionerpadding">
+                <source>padding frame for underlying image</source>
+                <target>padding frame for underlying image</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.positions">
+                <source>relative position</source>
+                <target>relative position</target>
+            </trans-unit>
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_sub_positionercontent">
+                <source>positioned content</source>
+                <target>positioned content</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_sub_positionerplace">
+                <source>positioner elements</source>
+                <target>positioner elements</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_sub_speechBubble">
+                <source>speech bubble</source>
+                <target>speech bubble</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_content_zindex">
+                <source>default of z-index:If you define a positioning information for a contentelement , the element will get this default z-index.</source>
+                <target>default of z-index:If you define a positioning information for a contentelement , the element will get this default z-index.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_main_tag">
+                <source>default of z-index:If you define a positioning information for a content-element, the element will get this default z-index.</source>
+                <target>default of z-index:If you define a positioning information for a content-element, the element will get this default z-index.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_main_idPrefix">
+                <source>prefix for positioner-id:You cann define your special attribute for the content-element 'positioner'.</source>
+                <target>prefix for positioner-id:You cann define your special attribute for the content-element 'positioner'.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_main_attribute">
+                <source>positioner-attributes:You cann define your special attributes for your positioner-placeholder.</source>
+                <target>positioner-attributes:You cann define your special attributes for your positioner-placeholder.</target>
+            </trans-unit>
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_container_prefixid">
+                <source>prefix for spechbubble-id/:Each container for the speechbubble will get an indivual id.</source>
+                <target>prefix for spechbubble-id/:Each container for the speechbubble will get an indivual id.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_container_event">
+                <source>event-attributes for the speechbubble: You can define various attributes for the container of your speechbubble. You should use this field normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</source>
+                <target>event-attributes for the speechbubble: You can define various attributes for the container of your speechbubble. You should use this field normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_container_attribute">
+                <source>attributes of for the speechbubble:You can give the html-tag of the speechbubble several attributes.</source>
+                <target>attributes of for the speechbubble:You can give the html-tag of the speechbubble several attributes.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_container_class">
+                <source>class of the speechtext: You can define general classes for the container of the speechtext of the speechbubble.</source>
+                <target>class of the speechtext: You can define general classes for the container of the speechtext of the speechbubble.</target>
+            </trans-unit>
+
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_text_heighorwidth">
+                <source>sizing of speechbubble:If you use a speech bubble, the sizing define how the text will expand the image of the speechbubble.</source>
+                <target>sizing of speechbubble:If you use a speech bubble, the sizing define how the text will expand the image of the speechbubble.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_text_event">
+                <source>event-attributes for the speechtext:You can define various attributes for the container of the speechtext. You should use this field normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</source>
+                <target>event-attributes for the speechtext:You can define various attributes for the container of the speechtext. You should use this field normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_text_attribute">
+                <source>attributes of for the speechtext:You can give the html-tag of the speechbubble-text several attributes.</source>
+                <target>attributes of for the speechtext:You can give the html-tag of the speechbubble-text several attributes.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_text_class">
+                <source>class of the speechtext: You can define general classes for the container of the speechtext of the speechbubble.</source>
+                <target>class of the speechtext: You can define general classes for the container of the speechtext of the speechbubble.</target>
+            </trans-unit>
+
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_canvas_tag">
+                <source>CANVAS or DIV:If you want an easy speech bubble, you use the div-tag als you let expand your browser the image of the speech bubble. If you want to use the canvas-tag, you can let construct the browser the speech bubble on the fly.</source>
+                <target>CANVAS or DIV:If you want an easy speech bubble, you use the div-tag als you let expand your browser the image of the speech bubble. If you want to use the canvas-tag, you can let construct the browser the speech bubble on the fly.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_canvas_event">
+                <source>event-attributes for speechbubble-image: You can giv the container of the speechbubble-Image various attribute. You should use this normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</source>
+                <target>event-attributes for speechbubble-image: You can giv the container of the speechbubble-Image various attribute. You should use this normally for general event-definitions. You can perhaps use it for an onclick-event to play the reading of the speechtext.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_canvas_attribute">
+                <source>attributes of speechbubble-image:You can give the container of the image of your speechbubble individual attribtues.</source>
+                <target>attributes of speechbubble-image:You can give the container of the image of your speechbubble individual attribtues.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_canvas_class">
+                <source>class of speechbubble-image: You can define general classes for the container of the image which shows the speechbubble.</source>
+                <target>class of speechbubble-image: You can define general classes for the container of the image which shows the speechbubble.</target>
+            </trans-unit>
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_bubble_from_color">
+                <source>code of source-color (HTML):color code from 00000 to FFFFFF without diamond</source>
+                <target>code of source-color (HTML):color code from 00000 to FFFFFF without diamond</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_bubble_to_color">
+                <source>code of destination-color (HTML):color code from 00000 to FFFFFF without diamond</source>
+                <target>code of destination-color (HTML):color code from 00000 to FFFFFF without diamond</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_bubble_dummy_color">
+                <source>code of the colo for saving the tranparancy:color code from 00000 to FFFFFF without diamond</source>
+                <target>code of the colo for saving the tranparancy:color code from 00000 to FFFFFF without diamond</target>
+            </trans-unit>
+
+
+            <trans-unit id="tx_positioner_constants_positioner.tx_sub_javascript">
+                <source>javascript</source>
+                <target>javascript</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_js_flagjquerylibary">
+                <source>fade of jQuery: Want you use the jQuery-libary of this extension, which is defined after this? (It is believed that you have already integrated jQuery and don't want a double integrationen of jQuery.)</source>
+                <target>fade of jQuery: Want you use the jQuery-libary of this extension, which is defined after this? (It is believed that you have already integrated jQuery and don't want a double integrationen of jQuery.)</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_js_jqueryframe">
+                <source>path of jQuery: If you enter a different path here, you should set the above constants tx_js_flagjquerylibary to true.</source>
+                <target>path of jQuery: If you enter a different path here, you should set the above constants tx_js_flagjquerylibary to true.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_js_flagaudiolibary">
+                <source>Usage of scripts for audio-play?:Want you use the two javascript-libarys, the simple CCS-file and the flash-definition to force the audio-play? (These files and a jQuery-Framework are needed to make the audio play of speech-bubbles possible.)</source>
+                <target>Usage of scripts for audio-play?:Want you use the two javascript-libarys, the simple CCS-file and the flash-definition to force the audio-play? (These files and a jQuery-Framework are needed to make the audio play of speech-bubbles possible.)</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_js_jplayersource">
+                <source>player-framework:The javascript-libary contains all javascript-methods, you need for using the player.</source>
+                <target>player-framework:The javascript-libary contains all javascript-methods, you need for using the player.</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_js_jplayerevent">
+                <source>eventcontol of speech-bubble: In the above constants 'tx_positioner.speechBubble.container.event' is defined javascript code per default for onclick events. The javascript library links the player with the events in the speech bubble. (It's assumed, that you want to use the functionality of speech-bubbles.)</source>
+                <target>eventcontol of speech-bubble: In the above constants 'tx_positioner.speechBubble.container.event' is defined javascript code per default for onclick events. The javascript library links the player with the events in the speech bubble. (It's assumed, that you want to use the functionality of speech-bubbles.)</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_constants_positioner.tx_css_audiostyle">
+                <source>CSS definitions:</source>
+                <target>CSS definitions:</target>
+            </trans-unit>
+		</body>
+	</file>
+</xliff>

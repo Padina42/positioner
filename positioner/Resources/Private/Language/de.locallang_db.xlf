@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-22T18:52:32Z" product-name="positioner">
+		<header/>
+		<body>
+			<trans-unit id="tx_positioner_domain_model_positioner">
+				<source>positioner</source>
+				<target>Positioner</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_speechbubble">
+				<source>speech bubble</source>
+				<target>Sprechblase</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_width">
+				<source>X [px]</source>
+				<target>X [px]</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_right">
+				<source>start right</source>
+				<target>von rechts ab</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_height">
+				<source>Y [px]</source>
+				<target>Y [px]</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_bottom">
+				<source>start at bottom</source>
+				<target>von unten ab</target>
+			</trans-unit>
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_content_z_index">
+				<source>z-index</source>
+				<target>Z-Index</target>
+			</trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_padding_top">
+                <source>top</source>
+                <target>oben</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_padding_right">
+                <source>right</source>
+                <target>rechts</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_padding_bottom">
+                <source>bottom</source>
+                <target>unten</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_padding_left">
+                <source>left</source>
+                <target>links</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_from_color">
+                <source>select color-code (HTML)</source>
+                <target>HTML-Farbcode zum Austauschen</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_to_color">
+                <source>change to color-code (HTML)</source>
+                <target>HTML-Farbcode zum Einsetzen</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_dummy_color">
+                <source>help-color-code (HTML) for saving image transparency</source>
+                <target>HTML-Farbcode für Transparenz-Schutz</target>
+            </trans-unit>
+            <trans-unit id="tx_positioner_domain_model_positioner.tx_positioner_to_opacity">
+                <source>change to Tranparancy (0-100%)</source>
+                <target>Teiltransparenz (0-100%)</target>
+            </trans-unit>
+
+
+			<trans-unit id="tx_positioner_domain_model_positioner.tx_section_frame">
+				<source>Positioner</source>
+				<target>Positioner</target>
+			</trans-unit>
+
+			<trans-unit id="tt_content.tx_extbase_type.Tx_Positioner_Positioner">
+				<source>Positioner Positioner</source>
+				<target>Positioner Positioner</target>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>
